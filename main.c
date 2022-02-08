@@ -30,7 +30,7 @@ int main(int argc, char const *argv[]){
   time_t t = time(NULL);
   struct tm *tm = localtime(&t);
   char s[64];
-  strftime(s, sizeof(s), "%F--%R", tm);
+  strftime(s, sizeof(s), "%F__%H-%M-%S", tm);
   // strftime(s, sizeof(s), "%c", tm);
 
 
@@ -92,6 +92,7 @@ int main(int argc, char const *argv[]){
 
     }
     fprintf(logptr, "\n");
+    fflush(logptr);
     sleep(1);
   }
   return 0;
