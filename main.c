@@ -9,9 +9,11 @@
 
 // please enter here the list of all the data file you want to save
 char* data_files[] = {"IMU.bin","WIMDA.bin","HCHDG.bin","GPRMC.bin"};
-
+int len = sizeof(data_files)/sizeof(data_files[0]);
 
 int main(int argc, char const *argv[]){
+
+  printf("%d\n",len );
 
   if (argc!=3){
     printf("Please enter sensor data directory and path to save log\n");
@@ -61,7 +63,7 @@ int main(int argc, char const *argv[]){
     fprintf(logptr,"%s", s);
     printf("log saved at %s\n", s);
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < len; i++) {
       FILE * fptr;
       char * filename  = malloc(50);
       strcat(filename,data_path);
